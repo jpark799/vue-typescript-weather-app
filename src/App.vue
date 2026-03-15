@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import SearchBar from "./components/SearchBar.vue";
 import WeatherCard from "./components/WeatherCard.vue";
+import ForecastCard from "./components/ForecastCard.vue";
 import { useWeather } from "./composables/useWeather";
 
-const { weather, loading, error, fetchWeather } = useWeather();
+const { weather, forecast, loading, error, fetchWeather } = useWeather();
 </script>
 
 <template>
@@ -25,6 +26,9 @@ const { weather, loading, error, fetchWeather } = useWeather();
       {{ error }}
     </p>
 
-    <WeatherCard v-else-if="weather" :weather="weather" />
+    <template v-else-if="weather">
+      <WeatherCard :weather="weather" />
+      <ForecastCard v-if="forecast.length" :forecast="forecast" />
+    </template>
   </div>
 </template>
