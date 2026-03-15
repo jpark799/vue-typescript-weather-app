@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import SearchBar from "./components/SearchBar.vue";
+import WeatherCard from "./components/WeatherCard.vue";
+import { useWeather } from "./composables/useWeather";
 
-function handleSearch(city: string) {
-  console.log("Searching for:", city);
-}
+const { weather, loading, error, fetchWeather } = useWeather();
 </script>
 
 <template>
@@ -15,6 +15,16 @@ function handleSearch(city: string) {
     >
       Vue Weather
     </h1>
-    <SearchBar @search="handleSearch" />
+    <SearchBar @search="fetchWeather" />
+
+    <p v-if="loading" class="text-center text-gray-500 dark:text-gray-400 mt-6">
+      Loading...
+    </p>
+
+    <p v-else-if="error" class="text-center text-red-400 mt-6">
+      {{ error }}
+    </p>
+
+    <WeatherCard v-else-if="weather" :weather="weather" />
   </div>
 </template>
