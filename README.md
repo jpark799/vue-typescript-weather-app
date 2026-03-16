@@ -2,6 +2,8 @@
 
 A simple weather app built with Vue 3, TypeScript, and Tailwind CSS.
 
+🌤️ **[Live Demo](https://vue-typescript-weather-app.vercel.app/)**
+
 ![Vue Weather App Screenshot](./src/assets/vueWeatherScreenshot.png)
 
 ## Tech Stack
