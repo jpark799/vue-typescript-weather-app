@@ -1,6 +1,6 @@
 # Vue Weather
 
-A weather app built with Vue 3, TypeScript, and Tailwind CSS.
+A simple weather app built with Vue 3, TypeScript, and Tailwind CSS.
 
 ![Vue Weather App Screenshot](./src/assets/vueWeatherScreenshot.png)
 
